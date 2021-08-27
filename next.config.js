@@ -51,4 +51,32 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "fr",
+          },
+        ],
+        permanent: false,
+        destination: "/fr/:path",
+      },
+      {
+        source: "/:path",
+        has: [
+          {
+            type: "cookie",
+            key: "lang",
+            value: "en",
+          },
+        ],
+        permanent: false,
+        destination: "/:path",
+      },
+    ];
+  },
 };
